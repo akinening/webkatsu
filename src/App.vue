@@ -45,7 +45,12 @@
 
   <section class="club">
     <h1 class="c-title">部活動</h1>
-    <img class="club__image" src="./assets/img/dummy1.png" alt="dummy image">
+    <ul class="myclubs">
+      <li class="myclub" v-for="(club, num) in state.clubs" :key="`club-${num}`">
+        <img class="myclub__image" src="./assets/img/ogp.png" :alt="club.title">
+        <p class="myclub__title">{{club.title}}</p>
+      </li>
+    </ul>
     <div class="club__btn" @click="toggleModal">すべての部活動</div>
   </section>
 
@@ -75,7 +80,19 @@
 
 import { reactive } from 'vue'
 
-const state = reactive({ isOpen: false })
+const state = reactive({
+  isOpen: false,
+  clubs: [
+    { title: '寿司を食べる会' },
+    { title: '海の家オフ' },
+    { title: '英会話サークル EngVillage' },
+    { title: '漫研Online' },
+    { title: 'ポケカ相手募集' },
+    { title: '兵庫でバスケしませんか' },
+    { title: 'Swiftもくもく会' },
+    { title: '【神田】飲み仲間募集中' }
+  ]
+})
 const toggleModal = () => {
   state.isOpen = !state.isOpen
 }
@@ -229,6 +246,24 @@ const toggleModal = () => {
 
     &:hover
       background-color #666
+
+.myclubs
+  display flex
+  flex-wrap wrap
+  justify-content space-between
+
+.myclub
+  width calc(20% - 16px)
+  min-width 240px
+  margin 0 8px
+
+  &__image
+    width 100%
+    
+  &__title
+    margin-bottom 20px
+    font-size 16px
+    font-weight bold
 
 .footer
   width 100%
