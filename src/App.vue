@@ -12,7 +12,7 @@
     </div>
   </section>
 
-  <transition name="modal" appear v-if="state.isOpen">
+  <transition name="modal" v-show="state.isOpen">
     <div class="overlay" @click.self="toggleModal">
       <div class="card">
         <img class="card__image" src="./assets/img/modal.png" alt="modal">
@@ -25,6 +25,34 @@
       </div>
     </div>
   </transition>
+
+  <section class="feature">
+    <img class="feature__image" src="./assets/img/friend.svg" alt="friend">
+    <div class="feature__text">
+      <h1 class="title">学生・社会人の皆さん、ようこそ！</h1>
+      <p class="description">
+        「We部」は、部活やサークルを<br>
+        Web上で気軽に立ち上げられるサービスです。<br>
+        <br>
+        オフ会を開きたい！<br>
+        ゲームでフレンドを募集したい！<br>
+        クリエイターの仲間がほしい！<br>
+        などなど・・・<br>
+        ゆるっと繋がりたい方におすすめです。
+      </p>
+    </div>
+  </section>
+
+  <section class="club">
+    <h1 class="c-title">部活動</h1>
+    <img class="club__image" src="./assets/img/dummy1.png" alt="dummy image">
+    <div class="club__btn" @click="toggleModal">すべての部活動</div>
+  </section>
+
+  <section class="category">
+    <h1 class="c-title">人気のジャンル</h1>
+    <img class="category__image" src="./assets/img/dummy2.png" alt="dummy image">
+  </section>
 </template>
 
 <script setup>
@@ -57,6 +85,7 @@ const toggleModal = () => {
   width 100%
   height 48px
   text-align center
+  background-color white
   box-shadow 0px 0px 1px 0px rgba(0, 0, 0, 0.75)
 
   &__logo
@@ -132,9 +161,60 @@ const toggleModal = () => {
     background-color #333
     border-radius 100px
 
-.modal-enter-active, .modal-leave-active
-  transition: opacity .25s
+    &:hover
+      background-color #666
 
-.modal-enter, .modal-leave-to
+.modal-enter-active, .modal-leave-active
+  transition: opacity .2s
+
+.modal-enter-from, .modal-leave-to
   opacity 0
+
+.feature
+  display flex
+  justify-content center
+  margin-top 60px
+
+  &__image
+    width 40%
+  
+  &__text
+    margin 32px 0 0 20px
+
+    & > .title
+      font-size 28px
+      font-weight bold
+      margin-bottom 20px
+    
+    & > .description
+      font-size 14px
+
+.club
+.category
+  width 100%
+  max-width 1080px
+  margin 80px auto
+  text-align center
+
+  &__image
+    width 100%
+    margin 0 20px
+  
+  &__btn
+    margin-top 48px
+    padding 16px 48px
+    display inline-block
+    font-size 16px
+    font-weight bold
+    color white
+    background-color #333
+    border-radius 100px
+
+    &:hover
+      background-color #666
+
+.c-title
+  font-size 28px
+  font-weight bold
+  margin-bottom 44px
 </style>
