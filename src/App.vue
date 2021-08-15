@@ -5,7 +5,7 @@
 
   <section class="hero">
     <img class="hero__logo" src="./assets/img/web.svg" alt="logo">
-    <p class="hero__sub">学生・社会人のための部活サービス</p>
+    <p class="hero__sub">学生・社会人のためのオンライン部活サービス</p>
     <div class="action">
       <img class="action__btn" src="./assets/img/btn_create.png" alt="部活をつくる" @click="toggleModal">
       <img class="action__btn" src="./assets/img/btn_enter.png" alt="部活に入る" @click="toggleModal">
