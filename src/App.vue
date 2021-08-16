@@ -47,7 +47,8 @@
     <h1 class="c-title">部活動</h1>
     <ul class="myclubs">
       <li class="myclub" v-for="(club, num) in state.clubs" :key="`club-${num}`">
-        <img class="myclub__image" src="./assets/img/ogp.png" :alt="club.title">
+        <img v-if="club.image" class="myclub__image" :src="club.image" :alt="club.title">
+        <img v-else class="myclub__image" src="./assets/img/ogp.png" :alt="club.title">
         <p class="myclub__title">{{club.title}}</p>
       </li>
     </ul>
@@ -83,14 +84,32 @@ import { reactive } from 'vue'
 const state = reactive({
   isOpen: false,
   clubs: [
-    { title: '寿司を食べる会' },
+    {
+      title: '寿司を食べる会',
+      image: 'https://cdn.pixabay.com/photo/2014/05/26/14/54/sushi-354629_1280.jpg'
+    },
     { title: '海の家オフ' },
     { title: '英会話サークル EngVillage' },
-    { title: '漫研Online' },
-    { title: 'ポケカ相手募集' },
-    { title: '兵庫でバスケしませんか' },
-    { title: 'Swiftもくもく会' },
-    { title: '【神田】飲み仲間募集中' }
+    {
+      title: '漫研Online',
+      image: 'https://cdn.pixabay.com/photo/2015/09/20/22/09/anime-948925_1280.jpg'
+    },
+    {
+      title: 'ポケカ相手募集',
+      image: 'https://cdn.pixabay.com/photo/2015/05/23/08/02/playing-cards-780325_1280.jpg'
+    },
+    {
+      title: '兵庫でバスケしませんか',
+      image: 'https://cdn.pixabay.com/photo/2019/10/07/13/17/basketball-4532581_1280.jpg'
+    },
+    {
+      title: 'Swiftもくもく会',
+      image: 'https://cdn.pixabay.com/photo/2017/08/10/08/47/laptop-2620118_1280.jpg'
+    },
+    {
+      title: '【神田】飲み仲間募集中',
+      image: 'https://cdn.pixabay.com/photo/2016/11/21/13/04/alcoholic-beverages-1845295_1280.jpg'
+    }
   ]
 })
 const toggleModal = () => {
@@ -261,7 +280,9 @@ const toggleModal = () => {
 
   &__image
     width 100%
-    
+    height 135px
+    object-fit cover
+
   &__title
     margin-bottom 20px
     font-size 16px
