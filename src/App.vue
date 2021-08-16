@@ -56,7 +56,7 @@
 
   <section class="category">
     <h1 class="c-title">人気のジャンル</h1>
-    <img class="category__image" src="./assets/img/dummy2.png" alt="dummy image">
+    <img class="category__image" src="./assets/img/ogp_gray.png" alt="">
   </section>
 
   <footer class="footer">
@@ -231,8 +231,7 @@ const toggleModal = () => {
   text-align center
 
   &__image
-    width 100%
-    margin 0 20px
+    width 33%
   
   &__btn
     margin-top 48px
