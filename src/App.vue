@@ -55,8 +55,13 @@
   </section>
 
   <section class="category">
-    <h1 class="c-title">人気のジャンル</h1>
-    <img class="category__image" src="./assets/img/ogp_gray.png" alt="">
+    <h1 class="c-title">人気のカテゴリ</h1>
+    <div class="category__image">創作活動</div>
+    <div class="category__image">ゲーム</div>
+    <div class="category__image">スポーツ</div>
+    <div class="category__image">英会話</div>
+    <div class="category__image">食事・旅行</div>
+    <div class="category__image">音楽</div>
   </section>
 
   <footer class="footer">
@@ -73,11 +78,6 @@
 </template>
 
 <script setup>
-// import HelloWorld from './components/HelloWorld.vue'
-
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md
-
 import { reactive } from 'vue'
 
 const state = reactive({
@@ -229,9 +229,6 @@ const toggleModal = () => {
   max-width 1080px
   margin 80px auto
   text-align center
-
-  &__image
-    width 33%
   
   &__btn
     margin-top 48px
@@ -263,6 +260,21 @@ const toggleModal = () => {
     margin-bottom 20px
     font-size 16px
     font-weight bold
+
+.category
+  &__image
+    display inline-block
+    margin 8px
+    padding 56px 0
+    width 320px
+    background #F3F6FF url(assets/img/ogp_gray.png) no-repeat center center
+    background-size cover
+    color white
+    font-size 28px
+    font-weight bold
+  
+    &:hover
+      opacity 80%
 
 .footer
   width 100%
