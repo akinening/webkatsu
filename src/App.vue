@@ -113,6 +113,7 @@ const toggleModal = () => {
   margin-bottom 44px
 
 .header
+  z-index 100
   position fixed
   top 0
   left 0
@@ -143,6 +144,7 @@ const toggleModal = () => {
   &__sub
     font-size 20px
     font-weight bold
+    margin 0 20px
 
 .action
   margin-top 160px
@@ -157,6 +159,10 @@ const toggleModal = () => {
     &:hover
       transition box-shadow 0.2s
       box-shadow none
+
+    @media (max-width: 768px)
+      width 140px
+      margin 0 8px
 
 .overlay
   display flex
