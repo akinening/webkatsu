@@ -7,7 +7,7 @@
     <img class="hero__logo" src="./assets/img/web.svg" alt="logo">
     <p class="hero__sub">学生・社会人のためのオンライン部活サービス</p>
     <div class="action">
-      <img class="action__btn" src="./assets/img/btn_create.png" alt="部活をつくる" @click="toggleModal">
+      <img class="action__btn" src="./assets/img/btn_create.png" alt="部活をつくる" @click="toggleFormModal">
       <img class="action__btn" src="./assets/img/btn_enter.png" alt="部活に入る" @click="toggleModal">
     </div>
   </section>
@@ -23,6 +23,21 @@
         </p>
         <a class="card__btn" href="https://tayori.com/form/44dd912aa78148fea8a5b933b4cfa5a14f34e544">アンケートに答える</a>
       </div>
+    </div>
+  </transition>
+
+  <transition name="modal" v-show="state.isFormOpen">
+    <div class="overlay" @click.self="toggleFormModal">
+      <form class="form">
+        <legend class="form__title">部活動団体 登録申請書</legend>
+        <label class="form__label" for="club-name">1. 部の名前を教えてください！</label>
+        <input class="form__input" type="text" name="club-name" placeholder="◯◯部 または ◯◯サークル" required>
+
+        <label class="form__label" for="club-name">2. ヘッダー画像のURLを設定しましょう</label>
+        <input class="form__input" type="text" name="club-name" placeholder="https://webukatsu.web.app/assets/ogp.df83dc5a.png" required>
+
+        <input class="form__submit" type="submit" value="部活を作成">
+      </form>
     </div>
   </transition>
 
@@ -83,6 +98,7 @@ import { reactive } from 'vue'
 
 const state = reactive({
   isOpen: false,
+  isFormOpen: false,
   clubs: [
     {
       title: '寿司を食べる会',
@@ -114,6 +130,10 @@ const state = reactive({
 })
 const toggleModal = () => {
   state.isOpen = !state.isOpen
+}
+
+const toggleFormModal = () => {
+  state.isFormOpen = !state.isFormOpen
 }
 
 </script>
@@ -326,4 +346,48 @@ const toggleModal = () => {
     color #aaa
     margin-right 40px
     font-size 14px
+
+.form
+  background-color white
+  border-radius 16px
+  margin 20px
+  padding 20px 40px
+  width 100%
+  max-width 640px
+
+  &__title
+    margin-bottom 32px
+    font-size 32px
+    font-weight bold
+    text-align center
+    letter-spacing 0.04em
+
+  &__label
+    display block
+    margin-bottom 8px
+    font-size 16px
+    font-weight bold
+
+  &__input
+    display block
+    background-color #F3F6FF
+    width 100%
+    margin-bottom 32px
+    padding 8px
+    border-radius 4px
+    font-size 16px
+
+  &__submit
+    display block
+    margin 12px auto
+    padding 16px 48px
+    font-size 16px
+    font-weight bold
+    text-align center
+    color white
+    background-color #333
+    border-radius 100px
+
+    &:hover
+      background-color #666
 </style>
