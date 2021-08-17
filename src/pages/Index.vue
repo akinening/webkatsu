@@ -128,7 +128,7 @@ const createClub = () => {
 
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .c-title
   font-size 28px
   font-weight bold

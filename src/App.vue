@@ -1,6 +1,8 @@
 <template>
   <header class="header">
-    <img class="header__logo" src="./assets/img/web.svg" alt="logo">
+    <a href="/">
+      <img class="header__logo" src="./assets/img/web.svg" alt="logo">
+    </a>
   </header>
 
   <router-view></router-view>
