@@ -28,7 +28,7 @@
 
   <transition name="modal" v-show="state.isFormOpen">
     <div class="overlay" @click.self="toggleFormModal">
-      <form class="form" @submit="createClub">
+      <form class="form" @submit.prevent="createClub">
         <legend class="form__title">部活動団体 登録申請書</legend>
         <label class="form__label" for="club-name">1. 部の名前を教えてください！</label>
         <input class="form__input" v-model="state.title" placeholder="◯◯部 または ◯◯サークル" required>
@@ -61,7 +61,7 @@
   <section class="club">
     <h1 class="c-title">部活動</h1>
     <ul class="myclubs">
-      <li class="myclub" v-for="(club, num) in state.clubs" :key="`club-${num}`">
+      <li class="myclub" v-for="(club, num) in state.clubs.slice().reverse()" :key="`club-${num}`">
         <img v-if="club.image" class="myclub__image" :src="club.image" :alt="club.title">
         <img v-else class="myclub__image" src="./assets/img/ogp.png" :alt="club.title">
         <p class="myclub__title">{{club.title}}</p>
@@ -105,24 +105,6 @@ const state = reactive({
   clubs: [],
   // clubs: [
   //   {
-  //     title: '寿司を食べる会',
-  //     image: 'https://cdn.pixabay.com/photo/2014/05/26/14/54/sushi-354629_1280.jpg'
-  //   },
-  //   { title: '海の家オフ' },
-  //   { title: '英会話サークル EngVillage' },
-  //   {
-  //     title: '漫研Online',
-  //     image: 'https://cdn.pixabay.com/photo/2015/09/20/22/09/anime-948925_1280.jpg'
-  //   },
-  //   {
-  //     title: 'ポケカ相手募集',
-  //     image: 'https://cdn.pixabay.com/photo/2015/05/23/08/02/playing-cards-780325_1280.jpg'
-  //   },
-  //   {
-  //     title: '兵庫でバスケしませんか',
-  //     image: 'https://cdn.pixabay.com/photo/2019/10/07/13/17/basketball-4532581_1280.jpg'
-  //   },
-  //   {
   //     title: 'Swiftもくもく会',
   //     image: 'https://cdn.pixabay.com/photo/2017/08/10/08/47/laptop-2620118_1280.jpg'
   //   },
@@ -154,6 +136,12 @@ const createClub = () => {
   db.collection('clubs').add({
     title: state.title,
     image: state.image
+  })
+  .then(() => {
+    state.isFormOpen = false
+  })
+  .catch((err) => {
+    console.log(err)
   })
 }
 
