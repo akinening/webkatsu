@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import router from './router'
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -17,5 +18,5 @@ firebase.initializeApp(firebaseConfig)
 
 export const db = firebase.firestore()
 
-createApp(App).mount('#app')
+createApp(App).use(router).mount('#app')
 
