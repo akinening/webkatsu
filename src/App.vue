@@ -1,14 +1,16 @@
 <template>
   <header class="header">
-    <a href="/">
+    <router-link to="/">
       <img class="header__logo" src="./assets/img/web.svg" alt="logo">
-    </a>
+    </router-link>
   </header>
 
   <router-view></router-view>
 
   <footer class="footer">
-    <img class="footer__logo" src="./assets/img/web-white.svg" alt="logo">
+    <router-link to="/">
+      <img class="footer__logo" src="./assets/img/web-white.svg" alt="logo">
+    </router-link>
     <p class="footer__sub">学生・社会人のための部活サービス</p>
     <ul class="menu">
       <li class="menu__list">利用規約</li>
@@ -61,4 +63,13 @@
     font-size 12px
     font-weight bold
     color white
+
+.menu
+  display flex
+  margin 40px 0 0 120px
+
+  &__list
+    color #aaa
+    margin-right 40px
+    font-size 14px
 </style>

@@ -4,7 +4,9 @@
     <p class="hero__sub">学生・社会人のためのオンライン部活サービス</p>
     <div class="action">
       <img class="action__btn" src="../assets/img/btn_create.png" alt="部活をつくる" @click="toggleFormModal">
-      <img class="action__btn" src="../assets/img/btn_enter.png" alt="部活に入る" @click="toggleModal">
+      <router-link to="/clubs">
+        <img class="action__btn" src="../assets/img/btn_enter.png" alt="部活に入る">
+      </router-link>
     </div>
   </section>
 
@@ -65,17 +67,19 @@
         </router-link>
       </li>
     </ul>
-    <div class="club__btn" @click="toggleModal">すべての部活動</div>
+    <router-link class="club__btn" to="/clubs">
+      すべての部活動
+    </router-link>
   </section>
 
   <section class="category">
     <h1 class="c-title">人気のカテゴリ</h1>
-    <div class="category__image">創作活動</div>
-    <div class="category__image">ゲーム</div>
-    <div class="category__image">スポーツ</div>
-    <div class="category__image">英会話</div>
-    <div class="category__image">食事・旅行</div>
-    <div class="category__image">音楽</div>
+    <div class="category__image" @click="toggleModal">創作活動</div>
+    <div class="category__image" @click="toggleModal">ゲーム</div>
+    <div class="category__image" @click="toggleModal">スポーツ</div>
+    <div class="category__image" @click="toggleModal">英会話</div>
+    <div class="category__image" @click="toggleModal">食事・旅行</div>
+    <div class="category__image" @click="toggleModal">音楽</div>
   </section>
 </template>
 
@@ -292,15 +296,6 @@ const createClub = () => {
   
     &:hover
       opacity 80%
-
-.menu
-  display flex
-  margin 40px 0 0 120px
-
-  &__list
-    color #aaa
-    margin-right 40px
-    font-size 14px
 
 .form
   background-color white
