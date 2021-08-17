@@ -28,13 +28,13 @@
 
   <transition name="modal" v-show="state.isFormOpen">
     <div class="overlay" @click.self="toggleFormModal">
-      <form class="form">
+      <form class="form" @submit="createClub">
         <legend class="form__title">部活動団体 登録申請書</legend>
         <label class="form__label" for="club-name">1. 部の名前を教えてください！</label>
-        <input class="form__input" type="text" name="club-name" placeholder="◯◯部 または ◯◯サークル" required>
+        <input class="form__input" v-model="state.title" placeholder="◯◯部 または ◯◯サークル" required>
 
         <label class="form__label" for="club-name">2. ヘッダー画像のURLを設定しましょう</label>
-        <input class="form__input" type="text" name="club-name" placeholder="https://webukatsu.web.app/assets/ogp.df83dc5a.png" required>
+        <input class="form__input" v-model="state.image" placeholder="https://webukatsu.web.app/assets/ogp.df83dc5a.png">
 
         <input class="form__submit" type="submit" value="部活を作成">
       </form>
@@ -100,6 +100,8 @@ import { db } from './main'
 const state = reactive({
   isOpen: false,
   isFormOpen: false,
+  title: '',
+  image: '',
   clubs: [],
   // clubs: [
   //   {
@@ -146,6 +148,13 @@ const toggleModal = () => {
 
 const toggleFormModal = () => {
   state.isFormOpen = !state.isFormOpen
+}
+
+const createClub = () => {
+  db.collection('clubs').add({
+    title: state.title,
+    image: state.image
+  })
 }
 
 </script>
