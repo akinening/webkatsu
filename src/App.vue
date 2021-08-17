@@ -95,39 +95,51 @@
 
 <script setup>
 import { reactive } from 'vue'
+import { db } from './main'
 
 const state = reactive({
   isOpen: false,
   isFormOpen: false,
-  clubs: [
-    {
-      title: '寿司を食べる会',
-      image: 'https://cdn.pixabay.com/photo/2014/05/26/14/54/sushi-354629_1280.jpg'
-    },
-    { title: '海の家オフ' },
-    { title: '英会話サークル EngVillage' },
-    {
-      title: '漫研Online',
-      image: 'https://cdn.pixabay.com/photo/2015/09/20/22/09/anime-948925_1280.jpg'
-    },
-    {
-      title: 'ポケカ相手募集',
-      image: 'https://cdn.pixabay.com/photo/2015/05/23/08/02/playing-cards-780325_1280.jpg'
-    },
-    {
-      title: '兵庫でバスケしませんか',
-      image: 'https://cdn.pixabay.com/photo/2019/10/07/13/17/basketball-4532581_1280.jpg'
-    },
-    {
-      title: 'Swiftもくもく会',
-      image: 'https://cdn.pixabay.com/photo/2017/08/10/08/47/laptop-2620118_1280.jpg'
-    },
-    {
-      title: '【神田】飲み仲間募集中',
-      image: 'https://cdn.pixabay.com/photo/2016/11/21/13/04/alcoholic-beverages-1845295_1280.jpg'
-    }
-  ]
+  clubs: [],
+  // clubs: [
+  //   {
+  //     title: '寿司を食べる会',
+  //     image: 'https://cdn.pixabay.com/photo/2014/05/26/14/54/sushi-354629_1280.jpg'
+  //   },
+  //   { title: '海の家オフ' },
+  //   { title: '英会話サークル EngVillage' },
+  //   {
+  //     title: '漫研Online',
+  //     image: 'https://cdn.pixabay.com/photo/2015/09/20/22/09/anime-948925_1280.jpg'
+  //   },
+  //   {
+  //     title: 'ポケカ相手募集',
+  //     image: 'https://cdn.pixabay.com/photo/2015/05/23/08/02/playing-cards-780325_1280.jpg'
+  //   },
+  //   {
+  //     title: '兵庫でバスケしませんか',
+  //     image: 'https://cdn.pixabay.com/photo/2019/10/07/13/17/basketball-4532581_1280.jpg'
+  //   },
+  //   {
+  //     title: 'Swiftもくもく会',
+  //     image: 'https://cdn.pixabay.com/photo/2017/08/10/08/47/laptop-2620118_1280.jpg'
+  //   },
+  //   {
+  //     title: '【神田】飲み仲間募集中',
+  //     image: 'https://cdn.pixabay.com/photo/2016/11/21/13/04/alcoholic-beverages-1845295_1280.jpg'
+  //   }
+  // ]
 })
+
+db.collection('clubs').get().then(snapshot => {
+  snapshot.docs.forEach(doc => {
+    state.clubs.push({
+      title: doc.data().title,
+      image: doc.data().image
+    })
+  })
+})
+
 const toggleModal = () => {
   state.isOpen = !state.isOpen
 }
