@@ -61,7 +61,7 @@
   <section class="club">
     <h1 class="c-title">部活動</h1>
     <ul class="myclubs">
-      <li class="myclub" v-for="(club, num) in state.clubs.slice().reverse()" :key="`club-${num}`">
+      <li class="myclub" v-for="(club, num) in state.clubs.reverse()" :key="`club-${num}`">
         <img v-if="club.image" class="myclub__image" :src="club.image" :alt="club.title">
         <img v-else class="myclub__image" src="./assets/img/ogp.png" :alt="club.title">
         <p class="myclub__title">{{club.title}}</p>
@@ -102,17 +102,7 @@ const state = reactive({
   isFormOpen: false,
   title: '',
   image: '',
-  clubs: [],
-  // clubs: [
-  //   {
-  //     title: 'Swiftもくもく会',
-  //     image: 'https://cdn.pixabay.com/photo/2017/08/10/08/47/laptop-2620118_1280.jpg'
-  //   },
-  //   {
-  //     title: '【神田】飲み仲間募集中',
-  //     image: 'https://cdn.pixabay.com/photo/2016/11/21/13/04/alcoholic-beverages-1845295_1280.jpg'
-  //   }
-  // ]
+  clubs: []
 })
 
 db.collection('clubs').get().then(snapshot => {
@@ -306,6 +296,9 @@ const createClub = () => {
   width calc(20% - 16px)
   min-width 240px
   margin 0 8px
+
+  &:nth-child(n+9)
+    display none
 
   &__image
     width 100%
