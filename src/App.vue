@@ -61,7 +61,7 @@
   <section class="club">
     <h1 class="c-title">部活動</h1>
     <ul class="myclubs">
-      <li class="myclub" v-for="(club, num) in state.clubs.reverse()" :key="`club-${num}`">
+      <li class="myclub" v-for="(club, num) in state.clubs.slice().reverse()" :key="`club-${num}`">
         <img v-if="club.image" class="myclub__image" :src="club.image" :alt="club.title">
         <img v-else class="myclub__image" src="./assets/img/ogp.png" :alt="club.title">
         <p class="myclub__title">{{club.title}}</p>
@@ -94,7 +94,7 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, onBeforeMount } from 'vue'
 import { db } from './main'
 
 const state = reactive({
@@ -105,12 +105,16 @@ const state = reactive({
   clubs: []
 })
 
-db.collection('clubs').get().then(snapshot => {
-  snapshot.docs.forEach(doc => {
-    state.clubs.push({
-      title: doc.data().title,
-      image: doc.data().image
+onBeforeMount(() => {
+  db.collection('clubs').get().then(snapshot => {
+    snapshot.docs.forEach(doc => {
+      state.clubs.push({
+        title: doc.data().title,
+        image: doc.data().image
+      })
     })
+  }).catch((err) => {
+    console.log(err)
   })
 })
 
