@@ -1,6 +1,7 @@
 <template>
   <div class="club">
-    <img class="image" :src="state.image" :alt="state.title">
+    <img v-if="state.image" class="image" :src="state.image" :alt="state.title">
+    <img v-else class="image" src="../assets/img/ogp.png" :alt="state.title">
     <div class="info">
       <h1 class="info__title">{{state.title}}</h1>
       <p class="info__member">代表: </p>
@@ -9,13 +10,10 @@
   </div>
 
   <div class="desc">
-    <div class="desc__text">
-      <h2>概要</h2>
-      <p>
-        琉球王国において漢学などの学問と共に士族の嗜みであった空手道は、大正時代に沖縄県から他の都道府県に伝えられ、昭和8年（1933年）に大日本武徳会において日本の武道として正式承認を受け、沖縄に大日本武徳会の支部が置かれる[3]。さらに第二次世界大戦後は世界各地に広まった。現在普及している空手道は、試合方式の違いから、寸止めルールを採用する伝統派空手と直接打撃制ルールを採用するフルコンタクト空手、防具を着用してポイント制の直接打撃行う防具付き空手などに大別できる。<br>
-        <br>
-        今日の空手道は打撃技を主体とする格闘技であるが、沖縄古来の空手道には取手（トゥイティー、とりて）、掛手（カキティー、かけて）と呼ばれる関節技や投げ技や掛け掴み技も含んでいた[4]。また、かつては空手道以外に棒術、釵術、ヌンチャク術といった武器術も併せて修行するのが一般的であった。沖縄では現在でも多くの沖縄系流派が古来の技術と鍛錬法を維持しているが、最近の本土系の流派では失伝した技を他の武術から取り入れて補う形で、総合的な体術への回帰、あるいは新たな総合武道へ発展を目指す流派・会派も存在する。
-      </p>
+    <p class="desc__text" v-if="state.description">{{ state.description }}</p>
+    <div class="desc__nothing" v-else>
+      <img src="../assets/img/404cat.svg" alt="no data">
+      <p>まだ活動内容がありません</p>
     </div>
   </div>
 
@@ -32,6 +30,7 @@ import { db } from '../main'
 const state = reactive({
   title: '',
   image: '',
+  description: '',
   id: ''
 })
 
@@ -42,6 +41,7 @@ onBeforeMount(() => {
   db.collection('clubs').doc(state.id).get().then(snapshot => {
     state.title = snapshot.data().title
     state.image = snapshot.data().image
+    state.description = snapshot.data().description
   }).catch((err) => {
     console.log(err)
   })
@@ -78,12 +78,24 @@ onBeforeMount(() => {
   background-color #F1F6FB
 
   &__text
+  &__nothing
     display block
     margin 0 auto
     padding 24px
     max-width 960px
     background-color white
     border-radius 8px
+  
+  &__nothing
+    text-align center
+
+    & > img
+      display inline-block
+      max-width 480px
+      margin -24px 0
+    
+    & > p
+      font-weight bold
 
 .message
   text-align center

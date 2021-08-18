@@ -28,10 +28,13 @@
     <div class="overlay" @click.self="toggleFormModal">
       <form class="form" @submit.prevent="createClub">
         <legend class="form__title">部活動団体 登録申請書</legend>
-        <label class="form__label" for="club-name">1. 部の名前を教えてください！</label>
+        <label class="form__label" for="club-name">1. 部の名前を決めましょう！</label>
         <input class="form__input" v-model="state.title" placeholder="◯◯部 または ◯◯サークル" required>
 
-        <label class="form__label" for="club-name">2. ヘッダー画像のURLを設定しましょう</label>
+        <label class="form__label" for="club-name">2. 活動内容を教えてください！</label>
+        <textarea class="form__input" v-model="state.description" placeholder="・架空大学の漫画研究会です。&#13;&#10;・株式会社イグザンプルの社内サークルです。&#13;&#10;・毎週月曜日にDiscordでもくもく会をやっています。&#13;&#10;など&#13;&#10;&#13;&#10;▼その他&#13;&#10;・部費: 500円/月&#13;&#10;・詳しくはTwitter @webukatsu にお問い合わせください&#13;&#10;など" required></textarea>
+
+        <label class="form__label" for="club-name">3. ヘッダー画像のURLを設定しましょう</label>
         <input class="form__input" v-model="state.image" placeholder="https://webukatsu.web.app/assets/ogp.df83dc5a.png">
 
         <input class="form__submit" type="submit" value="部活を作成">
@@ -92,6 +95,7 @@ const state = reactive({
   isFormOpen: false,
   title: '',
   image: '',
+  description: '',
   clubs: []
 })
 
@@ -101,6 +105,7 @@ onBeforeMount(() => {
       state.clubs.push({
         title: doc.data().title,
         image: doc.data().image,
+        description: doc.data().description,
         id: doc.id
       })
     })
@@ -120,7 +125,8 @@ const toggleFormModal = () => {
 const createClub = () => {
   db.collection('clubs').add({
     title: state.title,
-    image: state.image
+    image: state.image,
+    description: state.description
   })
   .then(() => {
     state.isFormOpen = false
