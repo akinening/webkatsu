@@ -20,12 +20,7 @@
   </div>
 
   <div class="message">
-    <p class="message__text">
-      この先は現在、開発中です。<br>
-      事前アンケートにお答えいただくと<br>
-      トライアル版開始時に、優先的にご招待いたします。
-    </p>
-    <a class="btn" href="https://tayori.com/form/44dd912aa78148fea8a5b933b4cfa5a14f34e544">アンケートに答える</a>
+    <router-link class="btn" :to="state.id + '/chat'">チャットを見る</router-link>
   </div>
 </template>
 
@@ -34,17 +29,17 @@ import { reactive, onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
 import { db } from '../main'
 
-const route = useRoute()
-
 const state = reactive({
   title: '',
   image: '',
+  id: ''
 })
 
+const route = useRoute()
+state.id = route.params.id
+
 onBeforeMount(() => {
-  const id = route.params.id
-  console.log(id)
-  db.collection('clubs').doc(id).get().then(snapshot => {
+  db.collection('clubs').doc(state.id).get().then(snapshot => {
     state.title = snapshot.data().title
     state.image = snapshot.data().image
   }).catch((err) => {
@@ -92,19 +87,13 @@ onBeforeMount(() => {
 
 .message
   text-align center
-  width 100%
-  margin 0 auto
-  max-width 640px
-  font-weight bold
-  
-  &__text
-    margin 32px
   
 .btn
-  margin-bottom 32px
+  margin 32px 0
   padding 16px 48px
   display inline-block
   font-size 16px
+  font-weight bold
   color white
   background-color #333
   border-radius 100px
