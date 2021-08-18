@@ -4,7 +4,7 @@
     <img v-else class="image" src="../assets/img/ogp.png" :alt="state.title">
     <div class="info">
       <h1 class="info__title">{{state.title}}</h1>
-      <p class="info__member">代表: </p>
+      <p class="info__member">代表: ゲスト</p>
       <a class="btn btn--enter" href="https://tayori.com/form/44dd912aa78148fea8a5b933b4cfa5a14f34e544">入部する</a>
     </div>
   </div>
@@ -14,6 +14,11 @@
     <div class="desc__nothing" v-else>
       <img src="../assets/img/404cat.svg" alt="no data">
       <p>まだ活動内容がありません</p>
+    </div>
+
+    <div class="links">
+      <a class="links__btn" href="http://twitter.com/share?url=https://webukatsu.web.app/&text=We%E9%83%A8">ツイートする</a>
+      <a class="links__btn" :href="'https://social-plugins.line.me/lineit/share?url=https://webukatsu.web.app' + $route.path">LINEでシェア</a>
     </div>
   </div>
 
@@ -96,6 +101,27 @@ onBeforeMount(() => {
     
     & > p
       font-weight bold
+
+.links
+  display block
+  margin 16px auto 0
+  padding 24px
+  max-width 960px
+  background-color white
+  border-radius 8px
+
+  &__btn
+    margin-right 16px
+    padding 16px 48px
+    display inline-block
+    font-size 16px
+    font-weight bold
+    color white
+    background-color #333
+    border-radius 8px
+
+    &:hover
+      background-color #666
 
 .message
   text-align center
