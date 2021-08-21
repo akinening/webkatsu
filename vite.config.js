@@ -7,5 +7,11 @@ export default defineConfig({
   base: '/',
   build: {
     outDir: 'docs'
+  },
+  server: {
+    hmr: {
+      protocol: 'wss',
+      port: 3000
+    }
   }
 })

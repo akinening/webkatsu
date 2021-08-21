@@ -49,6 +49,9 @@ const route = useRoute()
   background-color white
   border-radius 8px
 
+  @media (max-width: 768px)
+    margin 16px
+
   &__icon
     width 64px
     height 64px
@@ -57,4 +60,6 @@ const route = useRoute()
 
   &__text
     font-size 14px
+    word-break break-all
+
 </style>

@@ -228,14 +228,24 @@ const createClub = () => {
 
 .feature
   display flex
+  flex-direction row
   justify-content center
   margin-top 60px
 
+  @media (max-width: 768px)
+    flex-direction column
+
   &__image
     width 40%
+
+    @media (max-width: 768px)
+      width 100%
   
   &__text
     margin 32px 0 0 20px
+
+    @media (max-width: 768px)
+      margin 32px 20px 20px
 
     & > .title
       font-size 28px
