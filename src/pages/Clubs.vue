@@ -1,6 +1,6 @@
 <template>
   <section class="club">
-    <h1 class="c-title">部活動</h1>
+    <h1 class="c-title">部活動一覧</h1>
     <ul class="myclubs">
       <li class="myclub" v-for="(club, num) in state.clubs.slice().reverse()" :key="`club-${num}`">
         <router-link :to="'/club/' + club.id">
