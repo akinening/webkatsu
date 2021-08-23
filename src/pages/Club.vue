@@ -1,4 +1,6 @@
 <template>
+  <ClubMenu />
+
   <div class="club">
     <img v-if="state.image" class="image" :src="state.image" :alt="state.title">
     <img v-else class="image" src="../assets/img/ogp.png" :alt="state.title">
@@ -21,16 +23,13 @@
       <a class="links__btn" :href="'https://social-plugins.line.me/lineit/share?url=https://webukatsu.web.app' + $route.path">LINEでシェア</a>
     </div>
   </div>
-
-  <div class="message">
-    <router-link class="btn" :to="state.id + '/chat'">チャットを見る</router-link>
-  </div>
 </template>
 
 <script setup>
 import { reactive, onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
 import { db } from '../main'
+import ClubMenu from '../components/ClubMenu.vue'
 
 const state = reactive({
   title: '',
@@ -123,9 +122,6 @@ onBeforeMount(() => {
     &:hover
       background-color #666
 
-.message
-  text-align center
-  
 .btn
   margin 32px 0
   padding 16px 48px

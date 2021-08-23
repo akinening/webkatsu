@@ -4,7 +4,7 @@
   <router-view></router-view>
 
   <footer class="footer">
-    <router-link to="/">
+    <router-link :to="{ name: 'index' }">
       <img class="footer__logo" src="./assets/img/web-white.svg" alt="logo">
     </router-link>
     <p class="footer__sub">学生・社会人のための部活サービス</p>

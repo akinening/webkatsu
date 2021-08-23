@@ -1,4 +1,6 @@
 <template>
+  <ClubMenu />
+
   <div class="space">
     <form class="form" @submit.prevent="postChat">
       <textarea class="form__input" v-model="state.text" placeholder="チャットを入力" required></textarea>
@@ -13,11 +15,8 @@
 </template>
 
 <script setup>
-import { reactive, onBeforeMount } from 'vue'
-import { useRoute } from 'vue-router'
-import { db } from '../main'
-
-const route = useRoute()
+import { reactive } from 'vue'
+import ClubMenu from '../components/ClubMenu.vue'
 
 const state = reactive({
   text: '',
@@ -27,7 +26,6 @@ const state = reactive({
     'https://tayori.com/form/44dd912aa78148fea8a5b933b4cfa5a14f34e544'
   ]
 })
-
 
 const postChat = () => {
   state.chats.push(state.text)

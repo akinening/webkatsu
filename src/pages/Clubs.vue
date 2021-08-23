@@ -3,7 +3,7 @@
     <h1 class="c-title">部活動一覧</h1>
     <ul class="myclubs">
       <li class="myclub" v-for="(club, num) in state.clubs.slice().reverse()" :key="`club-${num}`">
-        <router-link :to="'/club/' + club.id">
+        <router-link :to="{ name: 'club', params: { id: club.id }}">
           <img v-if="club.image" class="myclub__image" :src="club.image" :alt="club.title">
           <img v-else class="myclub__image" src="../assets/img/ogp.png" :alt="club.title">
           <p class="myclub__title">{{club.title}}</p>

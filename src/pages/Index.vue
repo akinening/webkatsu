@@ -4,7 +4,7 @@
     <p class="hero__sub">学生・社会人のためのオンライン部活サービス</p>
     <div class="action">
       <img class="action__btn" src="../assets/img/btn_create.png" alt="部活をつくる" @click="toggleFormModal">
-      <router-link to="/clubs">
+      <router-link :to="{ name: 'clubs' }">
         <img class="action__btn" src="../assets/img/btn_enter.png" alt="部活に入る">
       </router-link>
     </div>
@@ -63,14 +63,14 @@
     <h1 class="c-title">部活動</h1>
     <ul class="myclubs">
       <li class="myclub" v-for="(club, num) in state.clubs.slice().reverse()" :key="`club-${num}`">
-        <router-link :to="'/club/' + club.id">
+        <router-link :to="{ name: 'club', params: { id: club.id }}">
           <img v-if="club.image" class="myclub__image" :src="club.image" :alt="club.title">
           <img v-else class="myclub__image" src="../assets/img/ogp.png" :alt="club.title">
           <p class="myclub__title">{{club.title}}</p>
         </router-link>
       </li>
     </ul>
-    <router-link class="club__btn" to="/clubs">
+    <router-link class="club__btn" :to="{ name: 'clubs' }">
       すべての部活動
     </router-link>
   </section>
