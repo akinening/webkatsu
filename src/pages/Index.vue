@@ -77,12 +77,12 @@
 
   <section class="category">
     <h1 class="c-title">人気のカテゴリ</h1>
-    <div class="category__image" @click="toggleModal">創作活動</div>
-    <div class="category__image" @click="toggleModal">ゲーム</div>
+    <div class="category__image" @click="toggleModal">カラオケ</div>
+    <div class="category__image" @click="toggleModal">ボードゲーム</div>
     <div class="category__image" @click="toggleModal">スポーツ</div>
     <div class="category__image" @click="toggleModal">英会話</div>
     <div class="category__image" @click="toggleModal">食事・旅行</div>
-    <div class="category__image" @click="toggleModal">音楽</div>
+    <div class="category__image" @click="toggleModal">プログラミング</div>
   </section>
 </template>
 
