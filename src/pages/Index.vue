@@ -1,7 +1,7 @@
 <template>
   <section class="hero">
     <img class="hero__logo" src="../assets/img/web.svg" alt="logo">
-    <p class="hero__sub">学生・社会人のためのオンライン部活サービス</p>
+    <p class="hero__sub">部活動をオンラインでかんたんに。</p>
     <div class="action">
       <img class="action__btn" src="../assets/img/btn_create.png" alt="部活をつくる" @click="toggleFormModal">
       <router-link :to="{ name: 'clubs' }">
