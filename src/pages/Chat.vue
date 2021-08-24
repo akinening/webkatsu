@@ -37,7 +37,7 @@ const postChat = () => {
 <style lang="stylus" scoped>
 .space
   background-color #F1F6FB
-  padding 72px 0
+  padding 88px 0
 
 .form
   position relative

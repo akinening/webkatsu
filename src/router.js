@@ -2,12 +2,16 @@ import { createWebHistory, createRouter } from "vue-router"
 import Index from './pages/Index.vue'
 import Clubs from './pages/Clubs.vue'
 import Club from './pages/Club.vue'
+import Member from './pages/Member.vue'
+import Event from './pages/Event.vue'
 import Chat from './pages/Chat.vue'
 
 const routes = [
   { path: "/", name: 'index', component: Index },
   { path: '/clubs', name: 'clubs', component: Clubs },
   { path: '/club/:id', name: 'club', component: Club },
+  { path: '/club/:id/member', name: 'member', component: Member },  
+  { path: '/club/:id/event', name: 'event', component: Event },  
   { path: '/club/:id/chat', name: 'chat', component: Chat },  
 ]
 

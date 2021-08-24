@@ -4,8 +4,12 @@
       <li class="menu__tab">
         <router-link :to="{ name: 'club', params: { id: route.params.id }}">部活動</router-link>
       </li>
-      <li class="menu__tab">メンバー</li>
-      <li class="menu__tab">イベント</li>
+      <li class="menu__tab">
+        <router-link :to="{ name: 'member', params: { id: route.params.id }}">メンバー</router-link>
+      </li>
+      <li class="menu__tab">
+        <router-link :to="{ name: 'event', params: { id: route.params.id }}">イベント</router-link>
+      </li>
       <li class="menu__tab">
         <router-link :to="{ name: 'chat', params: { id: route.params.id }}">チャット</router-link>
       </li>

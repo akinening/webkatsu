@@ -54,7 +54,7 @@ onBeforeMount(() => {
 
 <style lang="stylus" scoped>
 .club
-  margin 72px auto 0
+  margin 88px auto 0
   max-width 960px
 
 .image
