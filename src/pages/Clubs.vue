@@ -11,11 +11,14 @@
       </li>
     </ul>
   </section>
+
+  <Footer />
 </template>
 
 <script setup>
 import { reactive, onBeforeMount } from 'vue'
 import { db } from '../main'
+import Footer from '../components/Footer.vue'
 
 const state = reactive({
   title: '',

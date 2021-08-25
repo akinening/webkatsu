@@ -85,11 +85,14 @@
     <div class="category__image" @click="toggleModal">食事・旅行</div>
     <div class="category__image" @click="toggleModal">プログラミング</div>
   </section>
+
+  <Footer />
 </template>
 
 <script setup>
 import { reactive, onBeforeMount } from 'vue'
 import { db } from '../main'
+import Footer from '../components/Footer.vue'
 
 const state = reactive({
   isOpen: false,
