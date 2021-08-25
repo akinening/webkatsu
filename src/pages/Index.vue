@@ -42,21 +42,31 @@
     </div>
   </transition>
 
-  <section class="feature">
-    <img class="feature__image" src="../assets/img/friend.svg" alt="friend">
-    <div class="feature__text">
-      <h1 class="title">学生・社会人の皆さん、ようこそ！</h1>
-      <p class="description">
-        「Zenb」は、部活やサークルを<br>
-        Web上で気軽に立ち上げられるサービスです。<br>
-        <br>
-        オフ会を開きたい！<br>
-        ゲームでフレンドを募集したい！<br>
-        クリエイターの仲間がほしい！<br>
-        などなど・・・<br>
-        ゆるっと繋がりたい方におすすめです。
-      </p>
-      <a class="c-btn" href="https://note.com/preview/neb1a8d224cab?prev_access_key=52a687b5a4dfbaae416282ce28099910">使い方ガイド</a>
+  <section>
+    <div class="feature">
+      <img class="feature__image" src="../assets/img/friend.svg" alt="friend">
+      <div class="feature__text">
+        <h1 class="title">学生・社会人の皆さん、ようこそ！</h1>
+        <p class="description">
+          「Zenb」は、部活やサークルを<br>
+          Web上で気軽に立ち上げられるサービスです。<br>
+          <br>
+          オフ会を開きたい！<br>
+          ゲームでフレンドを募集したい！<br>
+          クリエイターの仲間がほしい！<br>
+          などなど・・・<br>
+          ゆるっと繋がりたい方におすすめです。
+        </p>
+        <a class="c-btn" href="https://note.com/preview/neb1a8d224cab?prev_access_key=52a687b5a4dfbaae416282ce28099910">使い方ガイド</a>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature__text">
+        <h1 class="title">スマホのホーム登録がおすすめ</h1>
+        <p class="description">
+          スマホで「ホーム画面に追加」をすると、Zenbをアプリとしてインストールし、部活動を管理しやすくなります。
+        </p>
+      </div>
     </div>
   </section>
 

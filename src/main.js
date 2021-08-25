@@ -3,7 +3,7 @@ import App from './App.vue'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import router from './router'
-import './registerServiceWorker'
+import { registerSW } from 'virtual:pwa-register'
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -16,8 +16,8 @@ const firebaseConfig = {
     measurementId: "G-1P5ZVSX9S4"
   };
 firebase.initializeApp(firebaseConfig)
-
 export const db = firebase.firestore()
 
+registerSW()
 createApp(App).use(router).mount('#app')
 
