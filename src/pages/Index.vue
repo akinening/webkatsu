@@ -32,10 +32,10 @@
         <input class="form__input" v-model="state.title" placeholder="◯◯部 または ◯◯サークル" required>
 
         <label class="form__label" for="club-name">2. 活動内容を教えてください！</label>
-        <textarea class="form__input" v-model="state.description" placeholder="・架空大学の漫画研究会です。&#13;&#10;・株式会社イグザンプルの社内サークルです。&#13;&#10;・毎週月曜日にDiscordでもくもく会をやっています。&#13;&#10;など&#13;&#10;&#13;&#10;▼その他&#13;&#10;・部費: 500円/月&#13;&#10;・詳しくはTwitter @webukatsu にお問い合わせください&#13;&#10;など" required></textarea>
+        <textarea class="form__input" v-model="state.description" placeholder="・架空大学の漫画研究会です。&#13;&#10;・株式会社イグザンプルの社内サークルです。&#13;&#10;・毎週月曜日にDiscordでもくもく会をやっています。&#13;&#10;など&#13;&#10;&#13;&#10;▼その他&#13;&#10;・部費: 500円/月&#13;&#10;・詳しくはTwitter @ZenbClub にお問い合わせください&#13;&#10;など" required></textarea>
 
         <label class="form__label" for="club-name">3. ヘッダー画像のURLを設定しましょう</label>
-        <input class="form__input" v-model="state.image" placeholder="https://webukatsu.web.app/assets/ogp.df83dc5a.png">
+        <input class="form__input" v-model="state.image" placeholder="https://bosyu.club/assets/ogp.df83dc5a.png">
 
         <input class="form__submit" type="submit" value="部活を作成">
       </form>
@@ -47,7 +47,7 @@
     <div class="feature__text">
       <h1 class="title">学生・社会人の皆さん、ようこそ！</h1>
       <p class="description">
-        「We部」は、部活やサークルを<br>
+        「Zenb」は、部活やサークルを<br>
         Web上で気軽に立ち上げられるサービスです。<br>
         <br>
         オフ会を開きたい！<br>

@@ -12,7 +12,7 @@
       <li class="menu__list">利用規約</li>
       <li class="menu__list">プライバシーポリシー</li>
       <li class="menu__list">
-        <a href="https://twitter.com/webukatsu" target="_blank">Twitter</a>
+        <a href="https://twitter.com/ZenbClub" target="_blank">Twitter</a>
       </li>
     </ul>
   </footer>

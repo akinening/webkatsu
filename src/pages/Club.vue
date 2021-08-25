@@ -19,8 +19,8 @@
     </div>
 
     <div class="links">
-      <a class="links__btn" href="http://twitter.com/share?url=https://webukatsu.web.app/&text=We%E9%83%A8">ツイートする</a>
-      <a class="links__btn" :href="'https://social-plugins.line.me/lineit/share?url=https://webukatsu.web.app' + $route.path">LINEでシェア</a>
+      <a class="links__btn" href="http://twitter.com/share?url=https://bosyu.club/&text=Zenb">ツイートする</a>
+      <a class="links__btn" :href="'https://social-plugins.line.me/lineit/share?url=https://bosyu.club' + $route.path">LINEでシェア</a>
     </div>
   </div>
 </template>
