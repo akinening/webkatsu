@@ -3,6 +3,7 @@ import App from './App.vue'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import router from './router'
+import './registerServiceWorker'
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
