@@ -65,6 +65,7 @@ onBeforeMount(() => {
     width 100%
     height 135px
     object-fit cover
+    border-radius 4px
 
   &__title
     margin-bottom 20px

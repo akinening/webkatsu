@@ -292,6 +292,7 @@ const createClub = () => {
     width 100%
     height 135px
     object-fit cover
+    border-radius 4px
 
   &__title
     margin-bottom 20px
@@ -304,11 +305,12 @@ const createClub = () => {
     margin 8px
     padding 56px 0
     width 320px
-    background #F3F6FF url(../assets/img/ogp_gray.png) no-repeat center center
+    background #F3F6FF url(../assets/img/bg_plane.png) no-repeat center center
     background-size cover
     color white
     font-size 28px
     font-weight bold
+    border-radius 4px
   
     &:hover
       opacity 80%
