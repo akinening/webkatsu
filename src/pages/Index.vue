@@ -56,6 +56,7 @@
         などなど・・・<br>
         ゆるっと繋がりたい方におすすめです。
       </p>
+      <a class="c-btn" href="https://note.com/preview/neb1a8d224cab?prev_access_key=52a687b5a4dfbaae416282ce28099910">使い方ガイド</a>
     </div>
   </section>
 
@@ -143,6 +144,19 @@ const createClub = () => {
   font-size 28px
   font-weight bold
   margin-bottom 44px
+
+.c-btn
+  margin 32px 0
+  padding 16px 48px
+  display inline-block
+  font-size 16px
+  font-weight bold
+  color white
+  background-color #333
+  border-radius 100px
+
+  &:hover
+    background-color #666
 
 .hero
   width 100%
