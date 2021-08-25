@@ -1,6 +1,6 @@
 <template>
   <section class="hero">
-    <img class="hero__logo" src="../assets/img/web.svg" alt="logo">
+    <img class="hero__logo" src="../assets/img/zenb-white.svg" alt="logo">
     <p class="hero__sub">部活動をオンラインでかんたんに。</p>
     <div class="action">
       <img class="action__btn" src="../assets/img/btn_create.png" alt="部活をつくる" @click="toggleFormModal">
@@ -155,9 +155,9 @@ const createClub = () => {
   &__logo
     width 240px
     margin-top 60px
-    opacity 80%
   
   &__sub
+    color white
     font-size 20px
     font-weight bold
     margin 0 20px

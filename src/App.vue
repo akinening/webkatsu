@@ -5,7 +5,7 @@
 
   <footer class="footer">
     <router-link :to="{ name: 'index' }">
-      <img class="footer__logo" src="./assets/img/web-white.svg" alt="logo">
+      <img class="footer__logo" src="./assets/img/zenb-white.svg" alt="logo">
     </router-link>
     <p class="footer__sub">学生・社会人のための部活サービス</p>
     <ul class="menu">
