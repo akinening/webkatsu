@@ -8,9 +8,9 @@
         </router-link>
       </li>
       <li class="menu__tab">
-        <router-link :to="{ name: 'member', params: { id: route.params.id }}">
-          <img class="tab__icon" src="../assets/img/member.svg" alt="">
-          <p class="tab__label">メンバー</p>
+        <router-link :to="{ name: 'chat', params: { id: route.params.id }}">
+          <img class="tab__icon" src="../assets/img/chat.svg" alt="">
+          <p class="tab__label">タイムライン</p>
         </router-link>
       </li>
       <li class="menu__tab">
@@ -20,9 +20,9 @@
         </router-link>
       </li>
       <li class="menu__tab">
-        <router-link :to="{ name: 'chat', params: { id: route.params.id }}">
-          <img class="tab__icon" src="../assets/img/chat.svg" alt="">
-          <p class="tab__label">チャット</p>
+        <router-link :to="{ name: 'wiki', params: { id: route.params.id }}">
+          <img class="tab__icon" src="../assets/img/wiki.svg" alt="">
+          <p class="tab__label">Wiki</p>
         </router-link>
       </li>
     </ul>

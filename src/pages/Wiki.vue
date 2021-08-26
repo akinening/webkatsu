@@ -2,8 +2,8 @@
   <ClubMenu />
 
   <div class="space">
-    <div class="" v-for="(member, num) in state.members" :key="`member-${num}`">
-      {{ member }}
+    <div class="" v-for="(doc, num) in state.docs" :key="`doc-${num}`">
+      {{ doc }}
     </div>
   </div>
 </template>
@@ -13,7 +13,7 @@ import { reactive } from 'vue'
 import ClubMenu from '../components/ClubMenu.vue'
 
 const state = reactive({
-  members: [ 'データが', 'ありません' ]
+  docs: [ 'データが', 'ありません' ]
 })
 
 </script>
