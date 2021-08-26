@@ -40,7 +40,7 @@ const state = reactive({
 <style lang="stylus" scoped>
 .space
   background-color #F1F6FB
-  padding 88px 0
+  padding 48px 0
 
 .event
   position relative

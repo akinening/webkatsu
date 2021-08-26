@@ -53,7 +53,7 @@ export default defineConfig({
   server: {
     hmr: {
       protocol: 'wss',
-      port: 3000
+      port: 443
     }
   }
 })

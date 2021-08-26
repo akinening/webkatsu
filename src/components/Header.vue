@@ -3,11 +3,33 @@
     <router-link :to="{ name: 'index' }">
       <img class="header__logo" src="../assets/img/zenb.svg" alt="logo">
     </router-link>
+    <div @click="signIn">サインイン</div>
   </header>
 </template>
 
 <script setup>
+import firebase from "firebase/app"
+import "firebase/auth"
+import { onMounted } from 'vue'
 
+const provider = new firebase.auth.GoogleAuthProvider()
+const signIn = () => {
+  firebase.auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      console.log(result.user)
+    }).catch((error) => {
+      console.log('認証エラー', error)
+    })
+}
+
+const authListener = firebase.auth().onAuthStateChanged(function(user) {
+  console.log(user +'でログイン中です')
+})
+
+onMounted(() => {
+    authListener()
+})
 </script>
 
 <style lang="stylus" scoped>

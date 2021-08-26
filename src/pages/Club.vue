@@ -54,8 +54,11 @@ onBeforeMount(() => {
 
 <style lang="stylus" scoped>
 .club
-  margin 88px auto 0
+  margin 68px auto 0
   max-width 960px
+
+  @media (max-width: 768px)
+    margin-top 48px
 
 .image
   display block
@@ -64,6 +67,10 @@ onBeforeMount(() => {
   border-radius 8px
   background-color #F3F6FF
   object-fit cover
+
+  @media (max-width: 768px)
+    height 240px
+    border-radius 0
 
 .info
   position relative
@@ -78,7 +85,7 @@ onBeforeMount(() => {
 
 .desc
   width 100%
-  padding 72px 0
+  padding 20px 0
   background-color #F1F6FB
 
   &__text
