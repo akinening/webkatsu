@@ -96,7 +96,10 @@ onBeforeMount(() => {
     max-width 960px
     background-color white
     border-radius 8px
-  
+
+  &__text
+    white-space pre-wrap
+
   &__nothing
     text-align center
 
