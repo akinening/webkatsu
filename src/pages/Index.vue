@@ -62,10 +62,12 @@
     </div>
     <div class="feature">
       <div class="feature__text">
-        <h1 class="title">スマホのホーム登録がおすすめ</h1>
+        <h1 class="title">スマホアプリをインストールしましょう</h1>
         <p class="description">
-          スマホで「ホーム画面に追加」をすると、Zenbをアプリとしてインストールし、部活動を管理しやすくなります。
+          Zenbをホームに追加すると、部活動を管理しやすくなります。<br>
+          (Android Chromeを推奨)
         </p>
+        <div class="c-btn" @click="installApp">インストール</div>
       </div>
     </div>
   </section>
@@ -100,7 +102,7 @@
 </template>
 
 <script setup>
-import { reactive, onBeforeMount } from 'vue'
+import { reactive, onBeforeMount, onMounted } from 'vue'
 import { db } from '../main'
 import Footer from '../components/Footer.vue'
 
@@ -128,6 +130,28 @@ onBeforeMount(() => {
   })
 })
 
+let deferredPrompt
+
+onMounted(() => {
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent the mini-infobar from appearing on mobile
+    e.preventDefault()
+    // Stash the event so it can be triggered later.
+    deferredPrompt = e
+  })
+})
+
+const installApp = async () => {
+  // Show the install prompt
+  deferredPrompt.prompt()
+  // Wait for the user to respond to the prompt
+  const { outcome } = await deferredPrompt.userChoice
+  // Optionally, send analytics event with outcome of user choice
+  console.log(`User response to the install prompt: ${outcome}`)
+  // We've used the prompt, and can't use it again, throw it away
+  deferredPrompt = null
+}
+
 const toggleModal = () => {
   state.isOpen = !state.isOpen
 }
@@ -149,7 +173,6 @@ const createClub = () => {
     console.log(err)
   })
 }
-
 </script>
 
 <style lang="stylus" scoped>
