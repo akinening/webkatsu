@@ -54,7 +54,7 @@ onBeforeMount(() => {
 
 <style lang="stylus" scoped>
 .club
-  margin 68px auto 0
+  margin 132px auto 0
   max-width 960px
 
   @media (max-width: 768px)
@@ -121,7 +121,7 @@ onBeforeMount(() => {
 
   &__btn
     margin-right 16px
-    padding 16px 48px
+    padding 16px 24px
     display inline-block
     font-size 16px
     font-weight bold
@@ -147,6 +147,10 @@ onBeforeMount(() => {
   
   &--enter
     position absolute
-    top 0
+    bottom 0
     right 0
+    margin 0
+
+    @media (max-width: 768px)
+      margin-right 20px
 </style>

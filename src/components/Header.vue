@@ -3,7 +3,7 @@
     <router-link :to="{ name: 'index' }">
       <img class="header__logo" src="../assets/img/zenb.svg" alt="logo">
     </router-link>
-    <div @click="signIn">サインイン</div>
+    <div class="signin" @click="signIn">サインイン</div>
   </header>
 </template>
 
@@ -40,7 +40,10 @@ onMounted(() => {
   left 0
   width 100%
   height 48px
-  text-align center
+  padding 0 20px
+  display flex
+  align-items center
+  justify-content space-between
   background-color white
   box-shadow 0px 0px 1px 0px rgba(0, 0, 0, 0.75)
 
@@ -48,4 +51,16 @@ onMounted(() => {
     height 36px
     margin 6px 0
     opacity 20%
+
+.signin
+  padding 8px 24px
+  display inline-block
+  font-size 14px
+  font-weight bold
+  border 1px solid #333
+  border-radius 8px
+
+  &:hover
+    color white
+    background-color #333
 </style>

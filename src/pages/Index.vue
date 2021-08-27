@@ -179,6 +179,9 @@ const createClub = () => {
   background #F3F6FF url(../assets/img/hero.png) no-repeat center center
   background-size cover
 
+  @media (max-width: 768px)
+    height 480px
+
   &__logo
     width 240px
     margin-top 60px
@@ -311,6 +314,10 @@ const createClub = () => {
   width calc(20% - 16px)
   min-width 240px
   margin 0 8px
+
+  @media (max-width: 768px)
+    width calc(50% - 16px)
+    min-width 160px
 
   &:nth-child(n+9)
     display none
